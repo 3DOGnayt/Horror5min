@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7975351695331857382
 Transform:
@@ -115,10 +115,20 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -670720726049322688, guid: 098fcb2c18001854b9757dc1d7031a5b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 098fcb2c18001854b9757dc1d7031a5b,
         type: 3}
       propertyPath: m_Name
       value: CardboardBoxes_setOf3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 098fcb2c18001854b9757dc1d7031a5b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3617498309566148547, guid: 098fcb2c18001854b9757dc1d7031a5b,
         type: 3}

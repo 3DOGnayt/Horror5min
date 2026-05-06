@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1030973607}
-  - component: {fileID: 1030973609}
   m_Layer: 0
   m_Name: CeilingProps_SM_Cables_3m_58
   m_TagString: Untagged
@@ -33,27 +32,6 @@ Transform:
   - {fileID: 1030973611}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1030973609
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030973606}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.011356, y: 0.066473, z: -0.088401}
-  m_Center: {x: 1.505678, y: -0.007232, z: -0.015689}
 --- !u!1 &1030973610
 GameObject:
   m_ObjectHideFlags: 0
