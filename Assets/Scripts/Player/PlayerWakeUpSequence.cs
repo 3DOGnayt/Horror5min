@@ -1,4 +1,4 @@
-using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,6 +21,8 @@ namespace HorrorCafe.Player
         [SerializeField] private UnityEvent standUpStarted;
         [SerializeField] private UnityEvent wakeFinished;
 
+        private Sequence wakeSequence;
+
         private void Reset()
         {
             playerController = GetComponent<HorrorPlayerController>();
@@ -38,11 +40,16 @@ namespace HorrorCafe.Player
 
         public void StartWakeUp()
         {
-            StopAllCoroutines();
-            StartCoroutine(WakeRoutine());
+            wakeSequence?.Kill();
+            StartWakeTween();
         }
 
-        private IEnumerator WakeRoutine()
+        private void OnDestroy()
+        {
+            wakeSequence?.Kill();
+        }
+
+        private void StartWakeTween()
         {
             SetControls(false);
             SetStandUpAnimatorEnabled(false);
@@ -50,24 +57,31 @@ namespace HorrorCafe.Player
 
             ApplyView(seatedLocalPosition, seatedLocalEuler);
 
-            if (seatedDelay > 0f)
-                yield return new WaitForSeconds(seatedDelay);
-
-            PlayStandUpAnimation();
-            standUpStarted?.Invoke();
-
-            var elapsed = 0f;
-            
-            while (elapsed < standUpDuration)
+            wakeSequence = DOTween.Sequence(this);
+            wakeSequence.AppendInterval(seatedDelay);
+            wakeSequence.AppendCallback(() =>
             {
-                elapsed += Time.deltaTime;
-                var t = Mathf.SmoothStep(0f, 1f, elapsed / standUpDuration);
-                var position = Vector3.Lerp(seatedLocalPosition, standingLocalPosition, t);
-                var rotation = Vector3.Lerp(seatedLocalEuler, standingLocalEuler, t);
-                ApplyView(position, rotation);
-                yield return null;
+                PlayStandUpAnimation();
+                standUpStarted?.Invoke();
+            });
+
+            if (viewPivot != null)
+            {
+                wakeSequence.Append(viewPivot.DOLocalMove(standingLocalPosition, standUpDuration)
+                    .SetEase(Ease.InOutSine));
+                wakeSequence.Join(viewPivot.DOLocalRotate(standingLocalEuler, standUpDuration)
+                    .SetEase(Ease.InOutSine));
+            }
+            else
+            {
+                wakeSequence.AppendInterval(standUpDuration);
             }
 
+            wakeSequence.OnComplete(FinishWakeUp);
+        }
+
+        private void FinishWakeUp()
+        {
             ApplyView(standingLocalPosition, standingLocalEuler);
             
             if (cameraLook != null) 
