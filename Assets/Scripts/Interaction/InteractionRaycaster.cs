@@ -80,7 +80,7 @@ namespace HorrorCafe.Interaction
 
         private InteractionContext CreateInteractionContext()
         {
-            return new InteractionContext(gameObject, sourceCamera, holdPoint, SetHeldFocus);
+            return new InteractionContext(gameObject, sourceCamera, holdPoint, heldFocus, SetHeldFocus);
         }
 
         private void SetHeldFocus(IInteractionFocusLock focusLock)
@@ -99,6 +99,10 @@ namespace HorrorCafe.Interaction
                 focused = next;
                 focused?.Focus();
             }
+
+            if (focused is IHeldFocusPreview heldFocusPreview)
+                heldFocusPreview.SetHeldFocusPreview(heldFocus);
+
             ApplyFocusUi(focused);
         }
 
@@ -158,7 +162,7 @@ namespace HorrorCafe.Interaction
                     continue;
 
                 var interactable = ResolveInteractable(hit.collider);
-                if (interactable == null)
+                if (interactable == null || !interactable.CanInteract)
                     continue;
 
                 closestDistance = hit.distance;

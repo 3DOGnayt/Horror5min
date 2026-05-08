@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6018855981851265646}
   - component: {fileID: 2232093017320190002}
   - component: {fileID: 455635172970995762}
+  - component: {fileID: 7144123217320366308}
   m_Layer: 6
   m_Name: P_Lid
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MonoBehaviour:
   rotateSensitivity: 5
   throwForce: 4
   rotateAroundVisualCenter: 1
+--- !u!114 &7144123217320366308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3481304795481676334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c156d8ed3a2f5045a4806f792f43efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kind: 2
 --- !u!1001 &1465301925871644743
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,11 +7,12 @@ namespace HorrorCafe.Interaction
     {
         private readonly Action<IInteractionFocusLock> focusLockHandler;
 
-        public InteractionContext(GameObject actor, Camera camera, Transform holdPoint, Action<IInteractionFocusLock> focusLockHandler = null)
+        public InteractionContext(GameObject actor, Camera camera, Transform holdPoint, IInteractionFocusLock heldFocus = null, Action<IInteractionFocusLock> focusLockHandler = null)
         {
             Actor = actor;
             Camera = camera;
             HoldPoint = holdPoint;
+            HeldFocus = heldFocus;
             this.focusLockHandler = focusLockHandler;
         }
 
@@ -20,6 +21,10 @@ namespace HorrorCafe.Interaction
         public Camera Camera { get; }
 
         public Transform HoldPoint { get; }
+
+        public IInteractionFocusLock HeldFocus { get; }
+
+        public InspectablePickupObject HeldPickup => HeldFocus as InspectablePickupObject;
 
         public void SetHeldFocus(IInteractionFocusLock focusLock)
         {

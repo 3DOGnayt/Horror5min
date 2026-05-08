@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2830757263466354319}
   - component: {fileID: 66640819790471580}
   - component: {fileID: 7602642745683083362}
+  - component: {fileID: 6563043362899395971}
   m_Layer: 6
   m_Name: P_Cup
   m_TagString: Untagged
@@ -82,6 +83,20 @@ MonoBehaviour:
   inspectLocalEuler: {x: 0, y: 0, z: 0}
   rotateSensitivity: 5
   throwForce: 4
+  rotateAroundVisualCenter: 1
+--- !u!114 &6563043362899395971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052892843767013531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c156d8ed3a2f5045a4806f792f43efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kind: 1
 --- !u!1001 &6533208613720581718
 PrefabInstance:
   m_ObjectHideFlags: 0

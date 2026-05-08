@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace HorrorCafe.Interaction
@@ -21,9 +22,13 @@ namespace HorrorCafe.Interaction
         private bool rotatingInspect;
         private Vector3 inspectRotationCenter;
 
+        public event Action<InspectablePickupObject, PickupReleaseMode> Released;
+        public event Action<InspectablePickupObject> PickedUp;
+
         public override string Prompt => takePrompt;
         public bool KeepsInteractionFocus => held;
         public bool IsRotatingInspect => rotatingInspect;
+        public bool IsHeld => held;
 
         private void Awake()
         {
@@ -97,6 +102,7 @@ namespace HorrorCafe.Interaction
             ApplyHoldPose();
             body.isKinematic = true;
             held = true;
+            PickedUp?.Invoke(this);
             return true;
         }
 
@@ -111,6 +117,7 @@ namespace HorrorCafe.Interaction
             transform.SetParent(previousParent);
             body.isKinematic = false;
             ClearHeldState();
+            Released?.Invoke(this, PickupReleaseMode.Drop);
         }
 
         private void Throw()
@@ -121,6 +128,43 @@ namespace HorrorCafe.Interaction
             var direction = inspectingCamera != null ? inspectingCamera.transform.forward : transform.forward;
             body.AddForce(direction.normalized * throwForce, ForceMode.VelocityChange);
             ClearHeldState();
+            Released?.Invoke(this, PickupReleaseMode.Throw);
+        }
+
+        public void SnapTo(Transform target, Transform parent, bool canInteract, Vector3 localEulerOffset = default)
+        {
+            if (target == null)
+                return;
+
+            EnsureBody();
+            transform.SetParent(parent, true);
+            transform.SetPositionAndRotation(target.position, target.rotation * Quaternion.Euler(localEulerOffset));
+
+            if (body != null)
+            {
+                body.velocity = Vector3.zero;
+                body.angularVelocity = Vector3.zero;
+                body.isKinematic = true;
+            }
+
+            ClearHeldState();
+            SetCanInteract(canInteract);
+            enabled = canInteract;
+        }
+
+        public void SetCollidersEnabled(bool value)
+        {
+            var colliders = GetComponentsInChildren<Collider>(true);
+            foreach (var itemCollider in colliders)
+            {
+                if (itemCollider != null)
+                    itemCollider.enabled = value;
+            }
+        }
+
+        public void SetPrompt(string value)
+        {
+            takePrompt = value;
         }
 
         private void ApplyHoldPose()
