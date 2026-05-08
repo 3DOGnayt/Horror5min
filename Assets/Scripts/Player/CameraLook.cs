@@ -14,11 +14,18 @@ namespace HorrorCafe.Player
         
         private float pitch;
         private bool lookEnabled = true;
+        private bool interactionLookBlocked;
 
         public bool LookEnabled
         {
             get => lookEnabled;
             set => lookEnabled = value;
+        }
+
+        public bool InteractionLookBlocked
+        {
+            get => interactionLookBlocked;
+            set => interactionLookBlocked = value;
         }
 
         public void SetPitch(float value)
@@ -42,7 +49,7 @@ namespace HorrorCafe.Player
 
         private void Update()
         {
-            if (!lookEnabled)
+            if (!lookEnabled || interactionLookBlocked)
                 return;
             
             var mouseX = Input.GetAxis("Mouse X") * sensitivity;

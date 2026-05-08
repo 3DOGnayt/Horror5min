@@ -1,12 +1,17 @@
+using System.Collections.Generic;
 using TMPro;
+using HorrorCafe.Player;
+using HorrorCafe.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace HorrorCafe.Interaction
 {
+    [DefaultExecutionOrder(-100)]
     public sealed class InteractionRaycaster : MonoBehaviour
     {
         [SerializeField] private Camera sourceCamera;
+        [SerializeField] private CameraLook cameraLook;
         [SerializeField] private Transform holdPoint;
         [SerializeField] private TMP_Text interactionText;
         [SerializeField] private GameObject idleIndicator;
@@ -18,11 +23,15 @@ namespace HorrorCafe.Interaction
         [SerializeField] private float range = 2.2f;
         [SerializeField] private LayerMask interactionMask = ~0;
         [SerializeField] private KeyCode interactKey = KeyCode.E;
+
         private IInteractable focused;
         private IInteractionFocusLock heldFocus;
+        private readonly Dictionary<Collider, IInteractable> interactableCache = new Dictionary<Collider, IInteractable>();
 
         private void Awake()
         {
+            ResolveCameraLook();
+
             SetInteractionText(string.Empty, false);
             if (movedHints != null)
                 movedHints.SetActive(false);
@@ -31,11 +40,18 @@ namespace HorrorCafe.Interaction
         private void Reset()
         {
             sourceCamera = GetComponentInChildren<Camera>();
+            ResolveCameraLook();
+        }
+
+        private void OnDisable()
+        {
+            SetCameraLookBlocked(false);
         }
 
         private void Update()
         {
             UpdateFocus();
+            UpdateCameraLookLock();
             if (!Input.GetKeyDown(interactKey))
                 return;
 
@@ -46,20 +62,30 @@ namespace HorrorCafe.Interaction
 
             if (canUseWorldFocus)
             {
-                focused.Interact(new InteractionContext(gameObject, sourceCamera, holdPoint));
+                focused.Interact(CreateInteractionContext());
                 return;
             }
 
             if (canUseHeldItem)
             {
-                heldInteractable.Interact(new InteractionContext(gameObject, sourceCamera, holdPoint));
+                heldInteractable.Interact(CreateInteractionContext());
                 return;
             }
 
             if (focused != null && focused.CanInteract)
             {
-                focused.Interact(new InteractionContext(gameObject, sourceCamera, holdPoint));
+                focused.Interact(CreateInteractionContext());
             }
+        }
+
+        private InteractionContext CreateInteractionContext()
+        {
+            return new InteractionContext(gameObject, sourceCamera, holdPoint, SetHeldFocus);
+        }
+
+        private void SetHeldFocus(IInteractionFocusLock focusLock)
+        {
+            heldFocus = focusLock != null && focusLock.KeepsInteractionFocus ? focusLock : null;
         }
 
         private void UpdateFocus()
@@ -81,7 +107,8 @@ namespace HorrorCafe.Interaction
             var hideWorldFocus = heldFocus != null && heldFocus.IsRotatingInspect;
             var hasFocus = !hideWorldFocus && interactable != null && interactable.CanInteract;
             var blockedPickup = hasFocus && IsBlockedPickupFocus(interactable);
-            var prompt = hasFocus && !blockedPickup ? interactable.Prompt : string.Empty;
+            var hidePrompt = IsPlayerMessageShowing();
+            var prompt = hasFocus && !blockedPickup && !hidePrompt ? interactable.Prompt : string.Empty;
 
             SetInteractionText(prompt, !string.IsNullOrWhiteSpace(prompt));
 
@@ -96,6 +123,12 @@ namespace HorrorCafe.Interaction
 
             if (movedHints != null)
                 movedHints.SetActive(heldFocus != null);
+        }
+
+        private bool IsPlayerMessageShowing()
+        {
+            var messageService = PlayerMessageService.Instance;
+            return messageService != null && messageService.IsShowing;
         }
 
         private void SetInteractionText(string text, bool visible)
@@ -114,11 +147,47 @@ namespace HorrorCafe.Interaction
                 return null;
             }
             var ray = new Ray(sourceCamera.transform.position, sourceCamera.transform.forward);
-            if (!Physics.Raycast(ray, out var hit, range, interactionMask, QueryTriggerInteraction.Collide))
+            var hits = Physics.RaycastAll(ray, range, interactionMask, QueryTriggerInteraction.Collide);
+            var closestDistance = float.PositiveInfinity;
+
+            IInteractable closestInteractable = null;
+
+            foreach (var hit in hits)
             {
-                return null;
+                if (IsHeldFocusCollider(hit.collider) || hit.distance >= closestDistance)
+                    continue;
+
+                var interactable = ResolveInteractable(hit.collider);
+                if (interactable == null)
+                    continue;
+
+                closestDistance = hit.distance;
+                closestInteractable = interactable;
             }
-            return hit.collider.GetComponentInParent<IInteractable>();
+
+            return closestInteractable;
+        }
+
+        private IInteractable ResolveInteractable(Collider collider)
+        {
+            if (collider == null)
+                return null;
+
+            if (!interactableCache.TryGetValue(collider, out var interactable))
+            {
+                interactable = collider.GetComponentInParent<IInteractable>();
+                interactableCache.Add(collider, interactable);
+            }
+
+            return interactable;
+        }
+
+        private bool IsHeldFocusCollider(Collider collider)
+        {
+            if (collider == null || heldFocus is not Component heldComponent)
+                return false;
+
+            return collider.transform.IsChildOf(heldComponent.transform);
         }
 
         private void UpdateHeldFocus()
@@ -134,6 +203,30 @@ namespace HorrorCafe.Interaction
                 heldFocus = null;
         }
 
+        private void UpdateCameraLookLock()
+        {
+            var blocksLook = heldFocus != null && (heldFocus.IsRotatingInspect || Input.GetKey(KeyCode.R));
+            SetCameraLookBlocked(blocksLook);
+        }
+
+        private void SetCameraLookBlocked(bool blocked)
+        {
+            if (cameraLook != null)
+                cameraLook.InteractionLookBlocked = blocked;
+        }
+
+        private void ResolveCameraLook()
+        {
+            if (cameraLook != null)
+                return;
+
+            if (sourceCamera != null)
+                cameraLook = sourceCamera.GetComponentInParent<CameraLook>();
+
+            if (cameraLook == null)
+                cameraLook = GetComponentInChildren<CameraLook>();
+        }
+
         private bool IsBlockedPickupFocus(IInteractable interactable)
         {
             if (heldFocus == null || interactable == null)
@@ -142,7 +235,7 @@ namespace HorrorCafe.Interaction
             if (ReferenceEquals(interactable, heldFocus))
                 return false;
 
-            return interactable is IPickupInteractable;
+            return interactable is IPickupInteractable || interactable is IRequiresEmptyHands;
         }
     }
 }

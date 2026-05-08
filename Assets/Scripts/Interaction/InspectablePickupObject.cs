@@ -12,13 +12,14 @@ namespace HorrorCafe.Interaction
         [SerializeField] private Vector3 inspectLocalEuler = Vector3.zero;
         [SerializeField] private float rotateSensitivity = 5f;
         [SerializeField] private float throwForce = 3.5f;
+        [SerializeField] private bool rotateAroundVisualCenter = true;
 
         private Rigidbody body;
         private Transform previousParent;
-        private bool previousKinematic;
         private Camera inspectingCamera;
         private bool held;
         private bool rotatingInspect;
+        private Vector3 inspectRotationCenter;
 
         public override string Prompt => takePrompt;
         public bool KeepsInteractionFocus => held;
@@ -26,7 +27,7 @@ namespace HorrorCafe.Interaction
 
         private void Awake()
         {
-            body = GetComponent<Rigidbody>();
+            EnsureBody();
         }
 
         private void Update()
@@ -46,12 +47,13 @@ namespace HorrorCafe.Interaction
                 {
                     rotatingInspect = true;
                     ApplyInspectPose();
+                    inspectRotationCenter = GetVisualCenter();
                 }
 
                 var mouseX = Input.GetAxis("Mouse X") * rotateSensitivity;
                 var mouseY = Input.GetAxis("Mouse Y") * rotateSensitivity;
-                transform.Rotate(Vector3.up, -mouseX, Space.World);
-                transform.Rotate(Vector3.right, mouseY, Space.World);
+                RotateInspect(Vector3.up, -mouseX);
+                RotateInspect(Vector3.right, mouseY);
                 return;
             }
 
@@ -67,32 +69,47 @@ namespace HorrorCafe.Interaction
             if (held)
                 Drop();
             else
-                PickUp(context);
+                TryPickUp(context);
 
             base.Interact(context);
         }
 
-        private void PickUp(InteractionContext context)
+        public bool TryPickUp(InteractionContext context)
         {
+            if (held)
+                return false;
+
+            return PickUp(context);
+        }
+
+        private bool PickUp(InteractionContext context)
+        {
+            EnsureBody();
+
             var anchor = context.Camera != null ? context.Camera.transform : context.HoldPoint;
-            if (anchor == null)
-                return;
+            if (anchor == null || body == null)
+                return false;
 
             previousParent = transform.parent;
-            previousKinematic = body.isKinematic;
             inspectingCamera = context.Camera;
 
             transform.SetParent(anchor);
             ApplyHoldPose();
             body.isKinematic = true;
             held = true;
+            return true;
+        }
+
+        private void EnsureBody()
+        {
+            if (body == null)
+                body = GetComponent<Rigidbody>();
         }
 
         private void Drop()
         {
-            ApplyInspectPose();
             transform.SetParent(previousParent);
-            body.isKinematic = previousKinematic;
+            body.isKinematic = false;
             ClearHeldState();
         }
 
@@ -116,6 +133,37 @@ namespace HorrorCafe.Interaction
         {
             transform.localPosition = inspectLocalPosition;
             transform.localRotation = Quaternion.Euler(inspectLocalEuler);
+        }
+
+        private void RotateInspect(Vector3 axis, float angle)
+        {
+            if (rotateAroundVisualCenter)
+                transform.RotateAround(inspectRotationCenter, axis, angle);
+            else
+                transform.Rotate(axis, angle, Space.World);
+        }
+
+        private Vector3 GetVisualCenter()
+        {
+            var renderers = GetComponentsInChildren<Renderer>(true);
+            var hasBounds = false;
+            var bounds = new Bounds(transform.position, Vector3.zero);
+
+            foreach (var itemRenderer in renderers)
+            {
+                if (itemRenderer == null)
+                    continue;
+
+                if (hasBounds)
+                    bounds.Encapsulate(itemRenderer.bounds);
+                else
+                {
+                    bounds = itemRenderer.bounds;
+                    hasBounds = true;
+                }
+            }
+
+            return hasBounds ? bounds.center : transform.position;
         }
 
         private void ClearHeldState()

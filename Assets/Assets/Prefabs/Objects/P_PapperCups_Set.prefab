@@ -1,0 +1,1207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5622726934861990683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2716187029483131873}
+  - component: {fileID: 8686225947576054821}
+  - component: {fileID: 5497325177831222122}
+  m_Layer: 6
+  m_Name: P_PapperCups_Set
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2716187029483131873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622726934861990683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3762489064350541800}
+  - {fileID: 7875825542409419287}
+  - {fileID: 4393197093963169622}
+  - {fileID: 8397566710049385046}
+  - {fileID: 5777496227509355733}
+  - {fileID: 1627636576281734581}
+  - {fileID: 7396603515715706148}
+  - {fileID: 2373934496036254346}
+  - {fileID: 789487131566155303}
+  - {fileID: 4104468530339031595}
+  - {fileID: 160511999054152530}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8686225947576054821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622726934861990683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7669259780e4af690c3d588cc13c8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompt: '[E] Interact'
+  canInteract: 1
+  takePrompt: '[E] Take cup'
+  items:
+  - {fileID: 5544103903419651519}
+  - {fileID: 8519928212506049734}
+  - {fileID: 4917385077284860106}
+  - {fileID: 7943000817616397415}
+  - {fileID: 2912947447846341577}
+  - {fileID: 6367064200221850456}
+  - {fileID: 2226774675755242040}
+  - {fileID: 4197631510456794299}
+  - {fileID: 8231762680408648123}
+  - {fileID: 2559821854481198330}
+  - {fileID: 8862475138198089989}
+  autoCollectFromChildren: 0
+  interactionCollider: {fileID: 5497325177831222122}
+--- !u!65 &5497325177831222122
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622726934861990683}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.42, z: 0.1}
+  m_Center: {x: 0, y: 0.21, z: 0}
+--- !u!1001 &556535828223730693
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!4 &2373934496036254346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 556535828223730693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7943000817616397415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 556535828223730693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1405076239498293607
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!4 &3762489064350541800 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1405076239498293607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8862475138198089989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1405076239498293607}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1999347274172803545
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.059999943
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!4 &4393197093963169622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1999347274172803545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8231762680408648123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1999347274172803545}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2287510690394832036
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!4 &4104468530339031595 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2287510690394832036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8519928212506049734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2287510690394832036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2698393311890855389
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!4 &160511999054152530 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2698393311890855389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5544103903419651519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2698393311890855389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3295523214980739240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!4 &789487131566155303 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3295523214980739240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4917385077284860106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3295523214980739240}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3593406774087023418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!4 &1627636576281734581 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3593406774087023418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6367064200221850456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3593406774087023418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4750977712425208747
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!114 &2912947447846341577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4750977712425208747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7396603515715706148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4750977712425208747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5333479264040135832
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.029999971
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!114 &2559821854481198330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5333479264040135832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7875825542409419287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5333479264040135832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6035660046831418585
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!114 &4197631510456794299 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6035660046831418585}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &8397566710049385046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6035660046831418585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8603305267399889498
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2716187029483131873}
+    m_Modifications:
+    - target: {fileID: 1052892843767013531, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Papper Cup 14 OZ (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.120000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50892421b4c171f45a147020ceeaccc4, type: 3}
+--- !u!114 &2226774675755242040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7602642745683083362, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8603305267399889498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fd0c9aa76c46038b53747e2cf65a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5777496227509355733 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2830757263466354319, guid: 50892421b4c171f45a147020ceeaccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8603305267399889498}
+  m_PrefabAsset: {fileID: 0}
