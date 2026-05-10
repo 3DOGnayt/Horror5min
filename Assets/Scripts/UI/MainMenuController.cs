@@ -27,6 +27,11 @@ namespace HorrorCafe.UI
 
         private void Start()
         {
+            Time.timeScale = 1f;
+            AudioListener.pause = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             if (mainPanel != null) 
                 mainPanel.SetActive(true);
             

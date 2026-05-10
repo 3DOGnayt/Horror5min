@@ -162,6 +162,9 @@ namespace HorrorCafe.Interaction
                     continue;
 
                 var interactable = ResolveInteractable(hit.collider);
+                if (interactable is IHeldFocusPreview heldFocusPreview)
+                    heldFocusPreview.SetHeldFocusPreview(heldFocus);
+
                 if (interactable == null || !interactable.CanInteract)
                     continue;
 

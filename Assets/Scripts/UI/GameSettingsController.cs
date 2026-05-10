@@ -1,3 +1,4 @@
+using HorrorCafe.Interaction;
 using HorrorCafe.Player;
 using UnityEngine;
 
@@ -8,10 +9,17 @@ namespace HorrorCafe.UI
         [SerializeField] private SettingsController settingsController;
         [SerializeField] private HorrorPlayerController playerController;
         [SerializeField] private CameraLook cameraLook;
+        [SerializeField] private InteractionRaycaster interactionRaycaster;
 
-        private float previousTimeScale = 1f;
         private CursorLockMode previousCursorLockMode;
         private bool previousCursorVisible;
+        private bool settingsOpenedByGameController;
+
+        private void Awake()
+        {
+            if (interactionRaycaster == null)
+                interactionRaycaster = FindObjectOfType<InteractionRaycaster>();
+        }
 
         private void OnEnable()
         {
@@ -38,11 +46,10 @@ namespace HorrorCafe.UI
 
         private void OpenSettings()
         {
-            previousTimeScale = Time.timeScale;
+            settingsOpenedByGameController = true;
             previousCursorLockMode = Cursor.lockState;
             previousCursorVisible = Cursor.visible;
 
-            Time.timeScale = 0f;
             SetGameInputEnabled(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -52,7 +59,10 @@ namespace HorrorCafe.UI
 
         private void ResumeGame()
         {
-            Time.timeScale = previousTimeScale <= 0f ? 1f : previousTimeScale;
+            if (!settingsOpenedByGameController)
+                return;
+
+            settingsOpenedByGameController = false;
             SetGameInputEnabled(true);
             Cursor.lockState = previousCursorLockMode;
             Cursor.visible = previousCursorVisible;
@@ -65,6 +75,9 @@ namespace HorrorCafe.UI
 
             if (cameraLook != null)
                 cameraLook.LookEnabled = enabled;
+
+            if (interactionRaycaster != null)
+                interactionRaycaster.enabled = enabled;
         }
     }
 }

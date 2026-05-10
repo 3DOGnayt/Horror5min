@@ -7,6 +7,8 @@ namespace HorrorCafe.Interaction
     {
         [SerializeField] private TrashBinInteractable trashBin;
 
+        public event System.Action<IPickupInteractable> PickupConsumed;
+
         private void Reset()
         {
             trashBin = GetComponentInParent<TrashBinInteractable>();
@@ -37,8 +39,11 @@ namespace HorrorCafe.Interaction
             if (pickup == null || IsHeld(pickup))
                 return;
 
-            if (pickup is Component pickupComponent)
+            if (pickup is Component pickupComponent && pickupComponent.gameObject.activeSelf)
+            {
                 pickupComponent.gameObject.SetActive(false);
+                PickupConsumed?.Invoke(pickup);
+            }
         }
 
         private static bool IsHeld(IPickupInteractable pickup)

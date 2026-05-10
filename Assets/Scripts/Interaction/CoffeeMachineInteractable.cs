@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -49,6 +50,13 @@ namespace HorrorCafe.Interaction
         private Coroutine brewRoutine;
         private InspectablePickupObject previewHeldPickup;
         private Tween liquidTween;
+
+        public event Action<InspectablePickupObject> CupPlaced;
+        public event Action BrewingStarted;
+        public event Action BrewingFinishedNeedsLid;
+        public event Action<InspectablePickupObject> LidPlaced;
+        public event Action<InspectablePickupObject> CoffeeReady;
+        public event Action<InspectablePickupObject> ReadyCoffeePickedUp;
 
         public override string Prompt => GetPrompt(previewHeldPickup);
         public override bool CanInteract => base.CanInteract && state != CoffeeMachineState.Ready;
@@ -175,6 +183,7 @@ namespace HorrorCafe.Interaction
             placedCup.SnapTo(cupSlot, transform, false, cupLocalEulerOffset);
             placedCup.SetPrompt(takeCoffeePrompt);
             ResetMachineVisuals();
+            CupPlaced?.Invoke(placedCup);
         }
 
         private void PlaceLid(InspectablePickupObject lid)
@@ -183,6 +192,7 @@ namespace HorrorCafe.Interaction
             var parent = placedCup != null ? placedCup.transform : transform;
             placedLid.SnapTo(lidSlot, parent, false, lidLocalEulerOffset);
             placedLid.SetCollidersEnabled(false);
+            LidPlaced?.Invoke(placedLid);
         }
 
         private void StartBrewing()
@@ -195,6 +205,7 @@ namespace HorrorCafe.Interaction
             SetParticlesActive(steamParticles, true);
             FillLiquid();
             brewRoutine = StartCoroutine(Brew());
+            BrewingStarted?.Invoke();
         }
 
         private IEnumerator Brew()
@@ -206,6 +217,7 @@ namespace HorrorCafe.Interaction
             SetLiquidFull();
             SetParticlesActive(pourParticles, false);
             SetParticlesActive(steamParticles, true);
+            BrewingFinishedNeedsLid?.Invoke();
         }
 
         private void MakeReady()
@@ -221,6 +233,7 @@ namespace HorrorCafe.Interaction
             placedCup.SetPrompt(takeCoffeePrompt);
             SetPickupKind(placedCup, CoffeePickupKind.ReadyCoffee);
             placedCup.PickedUp += OnReadyCoffeePickedUp;
+            CoffeeReady?.Invoke(placedCup);
         }
 
         private static bool IsPickupKind(InspectablePickupObject pickup, CoffeePickupKind expectedKind)
@@ -251,6 +264,7 @@ namespace HorrorCafe.Interaction
             placedLid = null;
             state = CoffeeMachineState.Empty;
             ResetMachineVisuals();
+            ReadyCoffeePickedUp?.Invoke(pickup);
         }
 
         private void ResetMachineVisuals()

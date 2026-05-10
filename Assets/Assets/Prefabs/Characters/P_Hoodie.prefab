@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7361562137273623371}
-  - component: {fileID: 5677395928525987111}
   m_Layer: 10
   m_Name: P_Hoodie
   m_TagString: Untagged
@@ -33,27 +32,6 @@ Transform:
   - {fileID: 3122796059919097737}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5677395928525987111
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5424598750813061824}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &3232703848867625058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,6 +294,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 240680bda70f25d42bf4ce766032c95f, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 8480c5662352ff540bde74b8e146f568,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7363479242261063072, guid: 8480c5662352ff540bde74b8e146f568,
         type: 3}
       propertyPath: m_Layer

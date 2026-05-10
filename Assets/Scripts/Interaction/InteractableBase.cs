@@ -9,8 +9,11 @@ namespace HorrorCafe.Interaction
         public virtual string Prompt => prompt;
         public virtual bool CanInteract => canInteract && isActiveAndEnabled;
 
+        public event System.Action<InteractableBase, InteractionContext> Interacted;
+
         public virtual void Interact(InteractionContext context)
         {
+            Interacted?.Invoke(this, context);
         }
 
         public virtual void Focus()
