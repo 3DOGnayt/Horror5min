@@ -9587,7 +9587,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[E] Drop           [R] Rotate           [RMB] Throw'
+  m_text: "[E] \u0411\u0440\u043E\u0441\u0438\u0442\u044C           [R] \u041F\u043E\u0432\u0435\u0440\u043D\u0443\u0442\u044C          
+    [RMB] \u041A\u0438\u043D\u0443\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10085,6 +10086,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3907713065266606064, guid: bc64a3bcd23ac534991e266bc39cec03,
+        type: 3}
+      propertyPath: prompt
+      value: "[E] \u041E\u0442\u043A\u0440\u044B\u0442\u044C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907713065266606064, guid: bc64a3bcd23ac534991e266bc39cec03,
+        type: 3}
+      propertyPath: lockedMessage
+      value: "\u041D\u0443\u0436\u043D\u044B \u043A\u043B\u044E\u0447\u0438"
+      objectReference: {fileID: 0}
     - target: {fileID: 7230903511363462984, guid: bc64a3bcd23ac534991e266bc39cec03,
         type: 3}
       propertyPath: m_Name
@@ -23699,7 +23710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepId: S01_WAKE
-  skip: 1
+  skip: 0
   delayBefore: 2
   lines:
   - speaker: "\u0418\u0433\u0440\u043E\u043A"
@@ -23762,7 +23773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepId: S02_COUNTER_TRIGGER
-  skip: 1
+  skip: 0
   requirePlayerTag: 0
   playerTag: Player
   delayAfterTrigger: 0
@@ -23843,7 +23854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepId: S03_PICKUP_DIRTY_ITEM
-  skip: 1
+  skip: 0
   acceptedPickups:
   - {fileID: 896237278}
   - {fileID: 896237277}
@@ -23902,7 +23913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepId: S04_TRASH_OBJECTIVE
-  skip: 1
+  skip: 0
   trashTrigger: {fileID: 1624210511}
   linesBefore: []
   linesAfterTrash: []
@@ -23956,7 +23967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepId: S05_COP_ENTER
-  skip: 1
+  skip: 0
   npc: {fileID: 300447836}
   spawnPoint: {fileID: 895923443}
   targetPoint: {fileID: 1788224853}
@@ -24028,7 +24039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepId: S06_COP_COFFEE
-  skip: 1
+  skip: 0
   interactable: {fileID: 448456808}
   linesBefore: []
   linesAfter:
@@ -24083,7 +24094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepId: S07_COP_EXIT_PHONE_RING
-  skip: 1
+  skip: 0
   delayBefore: 0
   lines:
   - speaker: "\u041A\u043E\u043F"
@@ -24461,8 +24472,8 @@ MonoBehaviour:
   linesBefore: []
   linesAfter:
   - speaker: "\u0425\u0443\u0434\u0438"
-    text: "\u0425\u0435\u0445\u0435, \u0434\u0440\u0443\u0436\u0438\u0449\u0435,
-      \u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0443\u044E \u043F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C."
+    text: "\u0414\u0440\u0443\u0436\u0438\u0449\u0435, \u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0443\u044E
+      \u043F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C."
     delayBefore: 0
     duration: 2.8
     delayAfter: 0
@@ -24850,13 +24861,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   requireLineOfSight: 0
-  linesAfter:
-  - speaker: "\u0418\u0433\u0440\u043E\u043A"
-    text: "\u0414\u0430 \u0447\u0442\u043E \u0441\u043E \u0441\u0432\u0435\u0442\u043E\u043C?"
-    delayBefore: 0
-    duration: 1.8
-    delayAfter: 0
-    voiceClip: {fileID: 8300000, guid: 0290f4b9f7562554e87450545644d745, type: 3}
+  linesAfter: []
 --- !u!1 &2131001700
 GameObject:
   m_ObjectHideFlags: 0
@@ -24912,14 +24917,15 @@ MonoBehaviour:
   attackDistance: 1.2
   monsterAnimator: {fileID: 1852138139}
   monsterWalkingBoolName: IsWalking
+  monsterAttackingBoolName: IsAttacking
   monsterAttackTriggerName: Attack
   chaseAudioSource: {fileID: 729634032}
   chaseClip: {fileID: 8300000, guid: 7871063fbe8862547a2a03353e88ac6d, type: 3}
   cameraLookOffset: {x: 0, y: 2, z: 0}
   lookAtDuration: 0.35
-  attackDelay: 0.45
-  blackScreenDelay: 0.15
-  returnToMenuDelay: 2
+  attackDelay: 1.6
+  blackScreenDelay: 0.2
+  returnToMenuDelay: 4
   menuSceneName: Menu
   endText: "\u0412\u044B \u043F\u0440\u043E\u0448\u043B\u0438 \u0438\u0433\u0440\u0443."
 --- !u!1001 &2141974333
