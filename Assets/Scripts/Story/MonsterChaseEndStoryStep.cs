@@ -19,6 +19,7 @@ namespace HorrorCafe.Story
         [SerializeField, Min(0.1f)] private float attackDistance = 1.2f;
         [SerializeField] private Animator monsterAnimator;
         [SerializeField] private string monsterWalkingBoolName = "IsWalking";
+        [SerializeField] private string monsterAttackingBoolName = "IsAttacking";
         [SerializeField] private string monsterAttackTriggerName = "Attack";
         [SerializeField] private AudioSource chaseAudioSource;
         [SerializeField] private AudioClip chaseClip;
@@ -38,8 +39,10 @@ namespace HorrorCafe.Story
             monsterObject.SetActive(true);
             PlayChaseLoop();
 
+            SetMonsterAttacking(false);
             SetMonsterWalking(true);
             yield return MoveMonsterToPlayer();
+            SetMonsterAttacking(true);
             SetMonsterWalking(false);
 
             LockPlayer();
@@ -151,6 +154,17 @@ namespace HorrorCafe.Story
                 return;
 
             monsterAnimator.SetBool(monsterWalkingBoolName, value);
+        }
+
+        private void SetMonsterAttacking(bool value)
+        {
+            if (monsterAnimator == null && monsterObject != null)
+                monsterAnimator = monsterObject.GetComponentInChildren<Animator>(true);
+
+            if (monsterAnimator == null || string.IsNullOrWhiteSpace(monsterAttackingBoolName))
+                return;
+
+            monsterAnimator.SetBool(monsterAttackingBoolName, value);
         }
 
         private void PlayAttack()
