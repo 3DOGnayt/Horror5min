@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: '[E] Interact'
   canInteract: 1
-  takePrompt: '[E] Take cup'
+  takePrompt: "[E] \u0412\u0437\u044F\u0442\u044C \u043A\u0440\u044B\u0448\u043A\u0443"
   items:
   - {fileID: 1902773818525911209}
   - {fileID: 2841847809423736239}

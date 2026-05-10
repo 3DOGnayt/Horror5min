@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1030974825}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SM_Plate_33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,12 +43,13 @@ GameObject:
   - component: {fileID: 1030974828}
   - component: {fileID: 1030974829}
   - component: {fileID: 1030974830}
-  m_Layer: 0
+  - component: {fileID: 7809905546077229002}
+  m_Layer: 15
   m_Name: SM_Plate_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1030974828
 Transform:
@@ -115,3 +116,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030974827}
   m_Mesh: {fileID: -7099646738648799436, guid: 84d21f4010e0c674eab84bb3918285ca, type: 3}
+--- !u!65 &7809905546077229002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030974827}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22177294, y: 0.22177288, z: 0.022686556}
+  m_Center: {x: -0.000000059604645, y: 0.0000000010208496, z: 0.011343252}

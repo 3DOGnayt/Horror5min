@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: '[E] Take'
   canInteract: 1
-  takePrompt: '[E] Take'
+  takePrompt: "[E] \u0412\u0437\u044F\u0442\u044C"
   holdLocalPosition: {x: 0, y: -0.22, z: 0.6}
   holdLocalEuler: {x: -90, y: 0, z: 0}
   inspectLocalPosition: {x: 0, y: 0, z: 0.5}
