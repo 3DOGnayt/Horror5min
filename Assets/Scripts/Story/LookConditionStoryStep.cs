@@ -1,4 +1,5 @@
 using System.Collections;
+using HorrorCafe.Player;
 using UnityEngine;
 
 namespace HorrorCafe.Story
@@ -42,6 +43,8 @@ namespace HorrorCafe.Story
         [SerializeField] private FlickerLightTarget[] flickerLightTargets;
         
         [SerializeField] private Camera playerCamera;
+        [SerializeField] private HorrorPlayerController playerController;
+        [SerializeField] private CameraLook cameraLook;
         [SerializeField] private Transform target;
         [SerializeField] private GameObject monsterObject;
         [SerializeField] private Transform monsterSpawnPoint;
@@ -56,6 +59,8 @@ namespace HorrorCafe.Story
         [SerializeField] private LayerMask lineOfSightMask = ~0;
         [SerializeField] private bool requireLineOfSight;
         [SerializeField] private DialogueLine[] linesAfter;
+        [SerializeField] private Vector3 lookAtOffset = new Vector3(0f, 1.5f, 0f);
+        [SerializeField, Min(0f)] private float autoLookDuration = 0.45f;
 
         private float conditionTime;
         private bool lightFlickerStarted;
@@ -74,10 +79,29 @@ namespace HorrorCafe.Story
         {
             conditionTime = 0f;
 
+            if (!requireLooking)
+                yield return WaitForCondition();
+
             ShowMonster();
             PlayGrowl();
             StartLightFlicker();
+            yield return TurnPlayerToMonster();
 
+            if (requireLooking)
+                yield return WaitForCondition();
+
+            if (controller.DialogueRunner != null && linesAfter != null && linesAfter.Length > 0)
+            {
+                PlayBackgroundLoop();
+                controller.DialogueRunner.Play(this, linesAfter);
+                while (controller.DialogueRunner.IsPlaying)
+                    yield return null;
+            }
+        }
+
+        private IEnumerator WaitForCondition()
+        {
+            conditionTime = 0f;
             var targetDuration = Mathf.Max(0.02f, requiredDuration);
 
             while (conditionTime < targetDuration)
@@ -88,14 +112,6 @@ namespace HorrorCafe.Story
                     conditionTime = 0f;
 
                 yield return null;
-            }
-
-            if (controller.DialogueRunner != null && linesAfter != null && linesAfter.Length > 0)
-            {
-                PlayBackgroundLoop();
-                controller.DialogueRunner.Play(this, linesAfter);
-                while (controller.DialogueRunner.IsPlaying)
-                    yield return null;
             }
         }
 
@@ -152,6 +168,75 @@ namespace HorrorCafe.Story
                 return true;
 
             return hit.transform == target || hit.transform.IsChildOf(target);
+        }
+
+        private IEnumerator TurnPlayerToMonster()
+        {
+            if (target == null)
+                yield break;
+
+            if (playerCamera == null)
+                playerCamera = Camera.main;
+
+            var cameraTransform = playerCamera != null ? playerCamera.transform : null;
+            if (cameraTransform == null)
+                yield break;
+
+            var wasControlsEnabled = playerController == null || playerController.ControlsEnabled;
+            var wasLookEnabled = cameraLook == null || cameraLook.LookEnabled;
+
+            SetPlayerInput(false);
+
+            var lookPosition = target.position + lookAtOffset;
+            var startRotation = cameraTransform.rotation;
+            var targetRotation = GetLookRotation(cameraTransform.position, lookPosition);
+            var elapsed = 0f;
+
+            while (elapsed < autoLookDuration)
+            {
+                elapsed += Time.deltaTime;
+                var t = autoLookDuration <= 0f ? 1f : Mathf.Clamp01(elapsed / autoLookDuration);
+                ApplyPlayerLook(Quaternion.Slerp(startRotation, targetRotation, t), lookPosition);
+                yield return null;
+            }
+
+            ApplyPlayerLook(targetRotation, lookPosition);
+
+            if (playerController != null)
+                playerController.ControlsEnabled = wasControlsEnabled;
+
+            if (cameraLook != null)
+                cameraLook.LookEnabled = wasLookEnabled;
+        }
+
+        private Quaternion GetLookRotation(Vector3 from, Vector3 to)
+        {
+            var direction = to - from;
+            if (direction.sqrMagnitude <= 0.0001f)
+                return Quaternion.identity;
+
+            return Quaternion.LookRotation(direction.normalized, Vector3.up);
+        }
+
+        private void ApplyPlayerLook(Quaternion worldRotation, Vector3 lookPosition)
+        {
+            if (cameraLook != null)
+            {
+                cameraLook.SetWorldLookRotation(worldRotation);
+                return;
+            }
+
+            if (playerCamera != null)
+                playerCamera.transform.rotation = GetLookRotation(playerCamera.transform.position, lookPosition);
+        }
+
+        private void SetPlayerInput(bool enabled)
+        {
+            if (playerController != null)
+                playerController.ControlsEnabled = enabled;
+
+            if (cameraLook != null)
+                cameraLook.LookEnabled = enabled;
         }
 
         private void StartLightFlicker()

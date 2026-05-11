@@ -5337,12 +5337,6 @@ Transform:
   - {fileID: 591045544}
   m_Father: {fileID: 185117568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &503046265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6717421012357771809, guid: 0a69766e6087be74496af49a99e027ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 751020420}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &512312402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8286,7 +8280,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1924397499}
+    m_TransformParent: {fileID: 1918947266}
     m_Modifications:
     - target: {fileID: 1091376616310953987, guid: 0a69766e6087be74496af49a99e027ee,
         type: 3}
@@ -8393,20 +8387,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6270116870905192035, guid: 0a69766e6087be74496af49a99e027ee,
-        type: 3}
-      propertyPath: canvasGroup
-      value: 
-      objectReference: {fileID: 751020427}
     - target: {fileID: 6717421012357771809, guid: 0a69766e6087be74496af49a99e027ee,
         type: 3}
       propertyPath: m_Name
       value: SettingsPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6717421012357771809, guid: 0a69766e6087be74496af49a99e027ee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6956425041082582553, guid: 0a69766e6087be74496af49a99e027ee,
         type: 3}
@@ -8416,11 +8400,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6717421012357771809, guid: 0a69766e6087be74496af49a99e027ee,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 751020427}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a69766e6087be74496af49a99e027ee, type: 3}
 --- !u!224 &751020421 stripped
 RectTransform:
@@ -8434,24 +8414,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 751020420}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503046265}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99e59298fb10f06458cd27cb062cef1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!225 &751020427
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503046265}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1001 &751647317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20784,6 +20752,7 @@ RectTransform:
   m_Children:
   - {fileID: 1331064686}
   - {fileID: 1924397499}
+  - {fileID: 751020421}
   - {fileID: 50446784}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20834,8 +20803,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 751020421}
+  m_Children: []
   m_Father: {fileID: 1918947266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -23784,7 +23752,7 @@ MonoBehaviour:
       \u0443\u0431\u0440\u0430\u0442\u044C \u0441\u043E \u0441\u0442\u043E\u043B\u0430
       \u043F\u043E\u043A\u0430 \u043A\u0442\u043E-\u043D\u0438\u0431\u0443\u0434\u044C
       \u043D\u0435 \u0437\u0430\u0448\u0435\u043B."
-    delayBefore: 0
+    delayBefore: 2
     duration: 3.2
     delayAfter: 0
     voiceClip: {fileID: 8300000, guid: 3d38abf2a0e026a418eed7b411e88056, type: 3}
@@ -23807,8 +23775,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.048042, y: 2, z: 1}
-  m_Center: {x: -0.31958187, y: 0, z: 0}
+  m_Size: {x: 8.737318, y: 2, z: 9.147668}
+  m_Center: {x: -2.63731, y: 0, z: 0.6363907}
 --- !u!1 &2131000300
 GameObject:
   m_ObjectHideFlags: 0
@@ -24847,6 +24815,8 @@ MonoBehaviour:
   - light: {fileID: 930962644}
     startDelay: 0.64
   playerCamera: {fileID: 330585545}
+  playerController: {fileID: 1624887019}
+  cameraLook: {fileID: 526664763}
   target: {fileID: 813280086}
   monsterObject: {fileID: 526108509}
   monsterSpawnPoint: {fileID: 895923443}
@@ -24862,6 +24832,8 @@ MonoBehaviour:
     m_Bits: 1024
   requireLineOfSight: 0
   linesAfter: []
+  lookAtOffset: {x: 0, y: 1.5, z: 0}
+  autoLookDuration: 0.45
 --- !u!1 &2131001700
 GameObject:
   m_ObjectHideFlags: 0

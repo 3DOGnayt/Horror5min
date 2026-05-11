@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace HorrorCafe.UI
@@ -10,6 +11,7 @@ namespace HorrorCafe.UI
         [SerializeField] private Slider masterVolumeSlider;
         [SerializeField] private Toggle muteToggle;
         [SerializeField] private Button closeButton;
+        [SerializeField] private Button returnToMenu;
 
         private bool binding;
 
@@ -36,6 +38,12 @@ namespace HorrorCafe.UI
             masterVolumeSlider?.onValueChanged.AddListener(OnMasterVolumeChanged);
             muteToggle?.onValueChanged.AddListener(OnMutedChanged);
             closeButton?.onClick.AddListener(CloseSettings);
+            returnToMenu?.onClick.AddListener(ReturnToMenu);
+        }
+
+        private void ReturnToMenu()
+        {
+            SceneManager.LoadScene(0);
         }
 
         private void Unbind()
@@ -43,6 +51,7 @@ namespace HorrorCafe.UI
             masterVolumeSlider?.onValueChanged.RemoveListener(OnMasterVolumeChanged);
             muteToggle?.onValueChanged.RemoveListener(OnMutedChanged);
             closeButton?.onClick.RemoveListener(CloseSettings);
+            returnToMenu?.onClick.RemoveListener(ReturnToMenu);
         }
 
         private void Refresh()

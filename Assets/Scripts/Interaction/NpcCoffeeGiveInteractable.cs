@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HorrorCafe.Interaction
@@ -8,10 +9,23 @@ namespace HorrorCafe.Interaction
         [SerializeField] private bool disableCoffeeOnGive = true;
 
         private InspectablePickupObject previewHeldPickup;
+
         private bool coffeeGiven;
+        private bool canAcceptCoffee;
+
+        private readonly HashSet<InspectablePickupObject> ignoredUntilExit = new();
 
         public override string Prompt => giveCoffeePrompt;
-        public override bool CanInteract => base.CanInteract && IsReadyCoffee(previewHeldPickup);
+
+        public override bool CanInteract =>
+            canAcceptCoffee &&
+            base.CanInteract &&
+            IsReadyCoffee(previewHeldPickup);
+
+        public void SetCanAcceptCoffee(bool value)
+        {
+            canAcceptCoffee = value;
+        }
 
         public void SetHeldFocusPreview(IInteractionFocusLock heldFocus)
         {
@@ -20,6 +34,9 @@ namespace HorrorCafe.Interaction
 
         public override void Interact(InteractionContext context)
         {
+            if (!canAcceptCoffee)
+                return;
+
             var coffee = context.HeldPickup;
             if (!IsReadyCoffee(coffee))
                 return;
@@ -38,6 +55,13 @@ namespace HorrorCafe.Interaction
             TryAcceptReleasedCoffee(other);
         }
 
+        private void OnTriggerExit(Collider other)
+        {
+            var coffee = other.GetComponentInParent<InspectablePickupObject>();
+            if (coffee != null)
+                ignoredUntilExit.Remove(coffee);
+        }
+
         private void TryAcceptReleasedCoffee(Collider other)
         {
             if (coffeeGiven || other == null)
@@ -47,12 +71,25 @@ namespace HorrorCafe.Interaction
             if (!IsReadyCoffee(coffee) || coffee.IsHeld)
                 return;
 
+            // NPC ещё говорит.
+            // Запоминаем этот кофе как "кинули слишком рано".
+            if (!canAcceptCoffee)
+            {
+                ignoredUntilExit.Add(coffee);
+                return;
+            }
+
+            // Этот кофе уже был внутри trigger до того,
+            // как NPC закончил говорить. Не принимаем его.
+            if (ignoredUntilExit.Contains(coffee))
+                return;
+
             AcceptCoffee(coffee, default);
         }
 
         private void AcceptCoffee(InspectablePickupObject coffee, InteractionContext context)
         {
-            if (coffeeGiven || coffee == null)
+            if (!canAcceptCoffee || coffeeGiven || coffee == null)
                 return;
 
             coffeeGiven = true;

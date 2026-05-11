@@ -22,12 +22,23 @@ namespace HorrorCafe.Story
 
             interacted = false;
 
+            var coffeeGive = interactable as NpcCoffeeGiveInteractable;
+
+            // Пока NPC говорит — кофе не принимается.
+            coffeeGive?.SetCanAcceptCoffee(false);
+
             interactable.Interacted += OnInteracted;
 
             yield return PlayDialogue(controller, linesBefore);
 
+            // Теперь NPC договорил, можно принимать кофе.
+            coffeeGive?.SetCanAcceptCoffee(true);
+
             while (!interacted)
                 yield return null;
+
+            // После успешной отдачи снова выключаем приём.
+            coffeeGive?.SetCanAcceptCoffee(false);
 
             interactable.Interacted -= OnInteracted;
 
@@ -40,6 +51,7 @@ namespace HorrorCafe.Story
                 yield break;
 
             controller.DialogueRunner.Play(this, lines);
+
             while (controller.DialogueRunner.IsPlaying)
                 yield return null;
         }
@@ -53,6 +65,9 @@ namespace HorrorCafe.Story
         {
             if (interactable != null)
                 interactable.Interacted -= OnInteracted;
+
+            if (interactable is NpcCoffeeGiveInteractable coffeeGive)
+                coffeeGive.SetCanAcceptCoffee(false);
         }
     }
 }

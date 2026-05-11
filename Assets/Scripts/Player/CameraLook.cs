@@ -34,6 +34,17 @@ namespace HorrorCafe.Player
             transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
         }
 
+        public void LookAt(Vector3 worldPosition)
+        {
+            var origin = playerCamera != null ? playerCamera.transform.position : transform.position;
+            SetLookDirection(worldPosition - origin);
+        }
+
+        public void SetWorldLookRotation(Quaternion worldRotation)
+        {
+            SetLookDirection(worldRotation * Vector3.forward);
+        }
+
         private void Awake() => ApplyCameraClipPlane();
 
         private void OnValidate() => ApplyCameraClipPlane();
@@ -69,6 +80,37 @@ namespace HorrorCafe.Player
 
             if (playerCamera != null) 
                 playerCamera.nearClipPlane = nearClipPlane;
+        }
+
+        private void SetLookDirection(Vector3 worldDirection)
+        {
+            if (worldDirection.sqrMagnitude <= 0.0001f)
+                return;
+
+            worldDirection.Normalize();
+
+            if (playerBody != null)
+            {
+                var flatDirection = new Vector3(worldDirection.x, 0f, worldDirection.z);
+                if (flatDirection.sqrMagnitude > 0.0001f)
+                    playerBody.rotation = Quaternion.LookRotation(flatDirection.normalized, Vector3.up);
+
+                var localDirection = playerBody.InverseTransformDirection(worldDirection);
+                var horizontalMagnitude = new Vector2(localDirection.x, localDirection.z).magnitude;
+                SetPitch(-Mathf.Atan2(localDirection.y, horizontalMagnitude) * Mathf.Rad2Deg);
+                return;
+            }
+
+            transform.rotation = Quaternion.LookRotation(worldDirection, Vector3.up);
+            pitch = NormalizePitch(transform.localEulerAngles.x);
+        }
+
+        private float NormalizePitch(float value)
+        {
+            if (value > 180f)
+                value -= 360f;
+
+            return Mathf.Clamp(value, minPitch, maxPitch);
         }
     }
 }

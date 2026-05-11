@@ -27,7 +27,7 @@ namespace HorrorCafe.Story
                 triggerCollider.isTrigger = true;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (!IsRunning || triggered || other == null)
                 return;
