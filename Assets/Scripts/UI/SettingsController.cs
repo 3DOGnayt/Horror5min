@@ -11,7 +11,8 @@ namespace HorrorCafe.UI
 
         [SerializeField] private AudioSettingsController audioSettings;
         [SerializeField] private CanvasGroup canvasGroup;
-
+        
+        public event Action SettingsOpened;
         public event Action SettingsClosed;
         private bool isOpen;
 
@@ -70,6 +71,7 @@ namespace HorrorCafe.UI
                 return;
 
             SetVisible(true);
+            SettingsOpened?.Invoke();
         }
 
         public void CloseSettings()

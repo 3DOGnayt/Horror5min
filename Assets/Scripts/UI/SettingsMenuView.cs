@@ -24,12 +24,19 @@ namespace HorrorCafe.UI
         private void OnEnable()
         {
             Bind();
+
+            if (controller != null)
+                controller.SettingsOpened += Refresh;
+
             Refresh();
         }
 
         private void OnDisable()
         {
             Unbind();
+
+            if (controller != null)
+                controller.SettingsOpened -= Refresh;
         }
 
         private void Bind()

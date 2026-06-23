@@ -30,7 +30,7 @@ namespace HorrorCafe.Audio
         {
             if (instance != null && instance != this)
             {
-                Destroy(gameObject);
+                Destroy(this);
                 return;
             }
 
